@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Horas</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        body { font-family: Arial, sans-serif; text-align: center; padding: 10px; }
         select, button, input { margin: 10px; padding: 10px; font-size: 16px; }
         .progress-container { width: 100%; background-color: #ddd; border-radius: 5px; margin: 20px 0; }
         .progress-bar { height: 20px; width: 0%; background-color: #4caf50; border-radius: 5px; }
+        .donate { font-size: 14px; margin-bottom: 5px; }
+        .donate a { text-decoration: none; color: #007bff; }
+        .donate a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -38,6 +41,8 @@
     <button onclick="parar()">Parar</button>
     <button onclick="resetar()">Resetar</button>
     
+    <p class="donate">Doe um ☕ pro <a href="https://www.instagram.com/guifarconi/" target="_blank">@guifarconi</a> no <span id="pix" style="cursor: pointer; color: #007bff; text-decoration: underline;" onclick="copiarPix()">14988302509</span></p>
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
         style="display:block"
@@ -47,7 +52,7 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-
+    
     <script>
         let tempoTotal = 0;
         let inicio;
@@ -117,6 +122,12 @@
             inicio = null;
             clearInterval(intervalo);
             atualizarTempo();
+        }
+        
+        function copiarPix() {
+            navigator.clipboard.writeText("14988302509").then(() => {
+                alert("Número de Pix copiado");
+            });
         }
         
         funcaoSelect.addEventListener("change", atualizarMeta);
